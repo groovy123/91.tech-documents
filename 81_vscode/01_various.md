@@ -14,3 +14,9 @@ alias sudocode='SUDO_EDITOR="$(which code) --wait" sudoedit'
 # 以下実行するとVSCodeでファイルが開く。他のテキストと同じように編集できる
 sudocode httpd.conf
 ```
+
+
+### WSLとVSCODEを連携する
+```bash
+export PATH=$PATH:'/mnt/c/Users/shibata/AppData/Local/Programs/Microsoft VS Code/bin'
+```

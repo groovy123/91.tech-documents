@@ -6,4 +6,7 @@ gitにコミットする際にはユーザー名、メールアドレスの登�
 ```bash
 git config --global user.name groovy123
 git config --global user.email groovy123@example.com
+
+git config user.name nssuser0120231211
+git config user.email nssuser0120231211@example.com
 ```

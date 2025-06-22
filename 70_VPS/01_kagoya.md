@@ -23,7 +23,7 @@ sudo ufw limit ${任意のポート}
 ※ログアウトしてしまうとログインできなくなってしまうので注意
 ```bash
 # sshd設定ファイル作成
-vim /etc/ssh/sshd_config.d/01-basic.conf
+sudo vim /etc/ssh/sshd_config.d/01-basic.conf
 
 PubkeyAuthentication yes
 ChallengeResponseAuthentication no
@@ -47,8 +47,10 @@ ListenStream=${任意のポート}
 sudo systemctl daemon-reload
 sudo systemctl restart ssh
 
-# Post確認
+# Port確認
 ss -anlt
+
+nc -vz ${IPアドレス} 22
 
 ```
 
@@ -63,10 +65,15 @@ gpasswd -a ${追加するユーザー} sudo
 ```bash
 # KEY作成
 ssh-keygen -t ed25519 -f id_kagoya_20250415
+
+# rename
+mv *.pub authorized_keys
 ```
 
 ### Public keyをコピー
 - Remoteの~/.ssh/authorized_keysに作成したpublickeyを追加
+- ※Remote側にはログインするユーザーの~/.ssh/authorized_keysにパブリックキーの設定必要
+- ※クライアント側にはログインするユーザーのprivatekeyのみ必要
 
 ### ssh config作成
 ```bash
